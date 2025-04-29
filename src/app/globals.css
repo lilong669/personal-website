@@ -3,24 +3,113 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 29, 29, 31; /* Apple's primary text color */
+  --background-rgb: 245, 245, 247; /* Apple's light background */
+  --accent-blue: #0066cc; /* Apple's blue accent color */
+  --accent-blue-dark: #2997ff; /* Apple's dark mode blue accent */
+  --gray-text: #86868b; /* Apple's secondary text color */
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1d1d1f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 245, 245, 247;
+    --background-rgb: 0, 0, 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apple-style transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Apple-style focus rings */
+*:focus {
+  outline: none;
+}
+
+/* Apple-style buttons */
+.apple-button {
+  background-color: var(--accent-blue);
+  border-radius: 980px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.dark .apple-button {
+  background-color: var(--accent-blue-dark);
+}
+
+.apple-button:hover {
+  background-color: #0055b3;
+}
+
+.dark .apple-button:hover {
+  background-color: #147ce5;
+}
+
+/* Apple-style cards */
+.apple-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dark .apple-card {
+  background-color: #1d1d1f;
+}
+
+.apple-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Apple-style typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* Apple-style form elements */
+input, textarea, select {
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #f5f5f7;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.dark input, .dark textarea, .dark select {
+  background-color: #2d2d2d;
+  color: #f5f5f7;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2);
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.2);
 }
